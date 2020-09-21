@@ -1,0 +1,21 @@
+{
+  "name": "quiz-analysis",
+  "version": "1.0.0",
+  "description": "Analysis of word frequency in Newsela quiz questions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && webpack",
+    "start": "npm run build && node ./dist/bundle.js"
+  },
+  "author": "Alice Kallaugher",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
