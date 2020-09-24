@@ -1,7 +1,16 @@
-Common words source: https://www.englishclub.com/vocabulary/common-words-100.htm
+## Instructions
 
+- Clone this repo
+- Run `npm install`
+- Run `npm start`
 
-Instructions: 
+Results will be printed in the terminal.
+
+## External dependencies
+
+- [Node.js](https://nodejs.org/en/)
+
+## Exercise instructions
 
 - What words or phrases appear more frequently in questions that students tend to do poorly on, and what appear more frequently in questions that students do well on?
 
@@ -17,4 +26,52 @@ Hints:
 
 - Consider how many appearances of a word there needs to be in order to say something about it. There may be words that should be excluded or sanitized.
 
- 
+## Questions and assumptions
+
+### How do we define a question that a student does well on vs. one they do poorly on?
+
+A question a student does well on is defined here as above 50%. This can be changed by editing `SUCCESS_BOUNDARY`.
+
+Note on naming: As we're treating the success of each question as binary, I'm using "correct" vs. "incorrect" in the code to refer to the students' performance on each question.
+
+### How many times does the word need to occur to be meaningful?
+
+I've arbitrarily set this as 40 occurrences. This can be changed by editing `FREQUENCY_COUNT_BOUNDARY`.
+
+### How do we account for the difference in number of correct vs. incorrect questions?
+
+There are almost twice as many correct questions as incorrect ones. To account for this I'm comparing the percentage of word occurrences in each set of questions, rather than the raw count.
+
+### How do we define "more frequently"? 
+
+Technically "more frequently" could mean a word occurred a single additional time for one question type, which would not be meaningful statistically. I'm considering "more frequently" to mean "proportionally, this word occurs at least twice as many times in one question type vs the other". This ratio can be changed by editing `FREQUENCY_RATIO_BETWEEN_TYPES`.
+
+## Results
+
+Word used frequently in questions students do well on: [
+  'mean',      'found',
+  'parents',   'disease',
+  'difficult', 'rules',
+  'fire',      'growing',
+  'since',     'discovery',
+  'suggest',   'education',
+  'accurate',  'live',
+  'selection'
+]
+
+Word used frequently in questions students do poorly on: [
+  'evidence',  'pro',
+  'argument',  'something',
+  'con',       'paragraphs',
+  'claim',     'point',
+  'draws',     'tone',
+  'animal',    'kind',
+  'structure', 'little'
+]
+
+Questions that students do poorly on seem to include more words that could refer directly to textual analysis (e.g. "structure", "paragraphs", "evidence", "argument", "tone", "pro", "con", "point", "claim"). By contrast, questions students do well on seem to include more words that could refer to the text's content rather than its structure ("parents", "disease", "fire", "education", "live").
+
+## Sources:
+
+- [Common words source](https://www.englishclub.com/vocabulary/common-words-100.htm) (with some additions)
+
