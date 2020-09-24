@@ -42,7 +42,10 @@ quizQuestions.forEach((question) => {
       : 1;
     wordCount[questionType][sanitizedWord] = newWordCount;
 
-    const totalWordOccurences = newWordCount + wordCount[oppositeType][sanitizedWord];
+    const oppositeTypeWordCount = wordCount[oppositeType][sanitizedWord]
+      ? wordCount[oppositeType][sanitizedWord]
+      : 0;
+    const totalWordOccurences = newWordCount + oppositeTypeWordCount;
 
     if (totalWordOccurences > FREQUENCY_COUNT_BOUNDARY) {
       highestFrequencyWords[questionType][sanitizedWord] = newWordCount;
